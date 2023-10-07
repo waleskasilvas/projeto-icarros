@@ -1,4 +1,5 @@
 package com.api.icarros.domain;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 public class ModeloAno implements Serializable {
 
+    @JsonProperty("modelos")
     List<Modelo> modelos;
+    @JsonProperty("anos")
     List<Ano> anos;
 }

@@ -25,7 +25,7 @@ public class FipeController {
     }
 
     @GetMapping("/marcas/{id}/modelos")
-    public ResponseEntity <List<ModeloAno>> findByBrand(@PathVariable("id") Integer id) {
+    public ResponseEntity <ModeloAno> findByBrand(@PathVariable("id") Integer id) {
         return ResponseEntity.ok().body(service.listarModelosPorMarca(id));
     }
 
@@ -37,7 +37,7 @@ public class FipeController {
     @GetMapping("/marcas/{id}/modelos/{modelo}/anos/{ano}")
     public ResponseEntity <Veiculo> findByYear(@PathVariable("id") Integer id,
                                              @PathVariable("modelo") String modelo,
-                                             @PathVariable("anoFabricacao") String anoFabricacao) {
+                                             @PathVariable("ano") String anoFabricacao) {
         return ResponseEntity.ok().body(service.consultarVeiculo(id, modelo, anoFabricacao));
     }
 

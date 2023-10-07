@@ -17,16 +17,16 @@ public interface FipeRepository {
     ResponseEntity <List<Marca>> listarMarcas();
 
     @GetMapping("/carros/marcas/{id}/modelos")
-    ResponseEntity <List<ModeloAno>> listarModelosPorMarca(@PathVariable("id") Integer id);
+    ResponseEntity <ModeloAno> listarModelosPorMarca(@PathVariable("id") Integer id);
 
     @GetMapping("/carros/marcas/{id}/modelos/{modelo}/anos")
     ResponseEntity <List<Ano>> listarAnosPorModelo(@PathVariable("id") Integer id,
                                                    @PathVariable("modelo") String modelo);
 
-    @GetMapping("/carros/marcas/{marca}/modelos/{modelo}/anos/{ano}")
+    @GetMapping("/carros/marcas/{id}/modelos/{modelo}/anos/{ano}")
     ResponseEntity <Veiculo> consultarVeiculo(@PathVariable("id") Integer id,
                                               @PathVariable("modelo") String modelo,
-                                              @PathVariable("anoFabricacao") String anoFabricacao);
+                                              @PathVariable("ano") String anoFabricacao);
 }
 
 

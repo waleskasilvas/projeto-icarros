@@ -1,12 +1,13 @@
 package com.api.icarros.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 @Getter
 @Setter
@@ -14,14 +15,23 @@ import java.util.Date;
 @NoArgsConstructor
 public class Veiculo implements Serializable {
 
-            private Integer tipoVeiculo;
-            private double preco;
-            private String marca;
-            private String modelo;
-            private Date anoModelo;
-            private String combustivel;
-            private String codigoFipe;
-            private String mesReferencia;
-            private char siglaCombustivel;
+    @JsonProperty("TipoVeiculo")
+    private Integer tipoVeiculo;
+    @JsonProperty("Valor")
+    private String valor;
+    @JsonProperty("Marca")
+    private String marca;
+    @JsonProperty("Modelo")
+    private String modelo;
+    @JsonProperty("AnoModelo")
+    private Integer anoModelo;
+    @JsonProperty("Combustivel")
+    private String combustivel;
+    @JsonProperty("CodigoFipe")
+    private String codigoFipe;
+    @JsonProperty("MesReferencia")
+    private String mesReferencia;
+    @JsonProperty("SiglaCombustivel")
+    private String siglaCombustivel;
 
 }

@@ -1,4 +1,5 @@
 package com.api.icarros.domain;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Marca implements Serializable{
 
+    @JsonProperty("codigo")
     private Integer codigo;
+    @JsonProperty("nome")
     private String nome;
 
 }
