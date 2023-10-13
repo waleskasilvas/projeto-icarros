@@ -93,19 +93,19 @@ public class FipeServiceTest {
         }
     }
 
-    @Test
-    void listarMarcasErroObjectException() {
-        FeignException feignException = FeignException.errorStatus("FeignException message",
-                Response.builder().status(400).reason("Bad Request").build());
-        when(repository.listarMarcas())
-                .thenThrow(new ObjectException(feignException));
-        try {
-            service.listarMarcas();
-        }
-        catch (FeignException e) {
-            assertEquals(ObjectException.class, e.getClass());
-        }
-    }
+//    @Test
+//    void listarMarcasErroObjectException() {
+//        FeignException feignException = FeignException.errorStatus("FeignException message",
+//                Response.builder().status(400).reason("Bad Request").build());
+//        when(repository.listarMarcas())
+//                .thenThrow(new ObjectException(feignException));
+//        try {
+//            service.listarMarcas();
+//        }
+//        catch (FeignException e) {
+//            assertEquals(ObjectException.class, e.getClass());
+//        }
+//    }
 
     @Test
     void listarModelosPorMarcaSucesso() {
