@@ -7,16 +7,20 @@ import com.api.icarros.repository.FipeRepository;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 @Slf4j
+@CacheConfig(cacheNames = "redis-fipe")
 public class FipeService {
 
     @Autowired
     private FipeRepository repository;
 
+    @Cacheable("listarMarcas")
     public List<Marca> listarMarcas() {
 
         try {
@@ -33,6 +37,7 @@ public class FipeService {
 
     }
 
+    @Cacheable("listarModelosPorMarca")
     public ModeloAno listarModelosPorMarca(Integer id) {
         log.info("ID {} ", id);
         try {
@@ -48,6 +53,7 @@ public class FipeService {
         }
     }
 
+    @Cacheable("listarAnosPorModelo")
     public List<Ano> listarAnosPorModelo(Integer id, String modelo) {
         log.info("ID {} \n Modelo: {} ", id, modelo);
         try {
@@ -64,6 +70,7 @@ public class FipeService {
 
     }
 
+    @Cacheable("consultarVeiculo")
     public Veiculo consultarVeiculo(Integer id, String modelo, String anoFabricacao){
         log.info("ID {} \n Modelo: {} \n Ano de Fabricacao: {} ", id, modelo, anoFabricacao);
         try {
